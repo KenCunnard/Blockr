@@ -122,10 +122,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:i) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 5}, "#BADA55"},
-             {{3, 5}, "#BADA55"},
-             {{4, 5}, "#BADA55"},
-             {{5, 5}, "#BADA55"}
+             {{2, 5}, "#00FFFF"},
+             {{3, 5}, "#00FFFF"},
+             {{4, 5}, "#00FFFF"},
+             {{5, 5}, "#00FFFF"}
            ]
   end
 
@@ -133,10 +133,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:l) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 5}, "#BADA55"},
-             {{3, 5}, "#BADA55"},
-             {{4, 5}, "#BADA55"},
-             {{4, 6}, "#BADA55"}
+             {{2, 5}, "#FFA500"},
+             {{3, 5}, "#FFA500"},
+             {{4, 5}, "#FFA500"},
+             {{4, 6}, "#FFA500"}
            ]
   end
 
@@ -144,10 +144,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:j) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 5}, "#BADA55"},
-             {{3, 5}, "#BADA55"},
-             {{4, 5}, "#BADA55"},
-             {{4, 4}, "#BADA55"}
+             {{2, 5}, "#0000FF"},
+             {{3, 5}, "#0000FF"},
+             {{4, 5}, "#0000FF"},
+             {{4, 4}, "#0000FF"}
            ]
   end
 
@@ -155,10 +155,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:t) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 4}, "#BADA55"},
-             {{2, 5}, "#BADA55"},
-             {{2, 6}, "#BADA55"},
-             {{3, 5}, "#BADA55"}
+             {{2, 4}, "#800080"},
+             {{2, 5}, "#800080"},
+             {{2, 6}, "#800080"},
+             {{3, 5}, "#800080"}
            ]
   end
 
@@ -166,10 +166,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:o) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 4}, "#BADA55"},
-             {{2, 5}, "#BADA55"},
-             {{3, 4}, "#BADA55"},
-             {{3, 5}, "#BADA55"}
+             {{2, 4}, "#FFFF00"},
+             {{2, 5}, "#FFFF00"},
+             {{3, 4}, "#FFFF00"},
+             {{3, 5}, "#FFFF00"}
            ]
   end
 
@@ -177,10 +177,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:s) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 5}, "#BADA55"},
-             {{2, 6}, "#BADA55"},
-             {{3, 5}, "#BADA55"},
-             {{3, 4}, "#BADA55"}
+             {{2, 5}, "#008000"},
+             {{2, 6}, "#008000"},
+             {{3, 5}, "#008000"},
+             {{3, 4}, "#008000"}
            ]
   end
 
@@ -188,10 +188,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:z) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 4}, "#BADA55"},
-             {{2, 5}, "#BADA55"},
-             {{3, 5}, "#BADA55"},
-             {{3, 6}, "#BADA55"}
+             {{2, 4}, "#FF0000"},
+             {{2, 5}, "#FF0000"},
+             {{3, 5}, "#FF0000"},
+             {{3, 6}, "#FF0000"}
            ]
   end
 
@@ -199,10 +199,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:z) |> Tetromino.rotate_right_90() |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 7}, "#BADA55"},
-             {{3, 7}, "#BADA55"},
-             {{3, 6}, "#BADA55"},
-             {{4, 6}, "#BADA55"}
+             {{2, 7}, "#FF0000"},
+             {{3, 7}, "#FF0000"},
+             {{3, 6}, "#FF0000"},
+             {{4, 6}, "#FF0000"}
            ]
   end
 end

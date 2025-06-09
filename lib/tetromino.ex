@@ -61,7 +61,7 @@ defmodule Tetromino do
     end
     |> Shape.rotate(tetro.rotation)
     |> Shape.move_to(tetro.location)
-    |> Shape.paint(tetro.color)
+    |> Shape.paint(tetro.name)
   end
 
   # Multiple function heads is not idiomatic, use cond or case in one function

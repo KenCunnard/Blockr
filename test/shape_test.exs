@@ -135,7 +135,7 @@ defmodule ShapeTest do
     assert Shape.rotate(shape, 270) == [{3, 2}, {3, 3}, {3, 4}, {2, 4}]
   end
 
-  test "Paint shape green" do
+  test "Paint a shape" do
     shape =
       [
         Point.new(2, 2),
@@ -144,11 +144,11 @@ defmodule ShapeTest do
         Point.new(4, 3)
       ]
 
-    assert Shape.paint(shape, "#BADA55") == [
-             {{2, 2}, "#BADA55"},
-             {{3, 2}, "#BADA55"},
-             {{4, 2}, "#BADA55"},
-             {{4, 3}, "#BADA55"}
+    assert Shape.paint(shape, :j) == [
+             {{2, 2}, "#0000FF"},
+             {{3, 2}, "#0000FF"},
+             {{4, 2}, "#0000FF"},
+             {{4, 3}, "#0000FF"}
            ]
   end
 end

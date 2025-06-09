@@ -36,4 +36,8 @@ defmodule Canvas do
     |> Enum.map(&draw(&1, width))
     |> Enum.join("\n")
   end
+
+  def draw({row, col}, width) do
+    draw({{row, col}, "#000000"}, width)
+  end
 end

@@ -105,8 +105,8 @@ defmodule Point do
     |> flip_top_bottom()
   end
 
-  def paint(point, html_color_code) do
-    {point, html_color_code}
+  def paint(point, color) do
+    {point, color}
   end
 end
 

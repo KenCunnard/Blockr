@@ -4,7 +4,7 @@ defmodule TetrominoTest do
   test "Create new tetromino" do
     assert Tetromino.new() == %Tetromino{
              name: :i,
-             location: {1, 3},
+             location: {0, 0},
              rotation: 0,
              color: "#BADA55"
            }
@@ -15,7 +15,7 @@ defmodule TetrominoTest do
 
     assert Tetromino.left(tetro) == %Tetromino{
              name: :i,
-             location: {1, 2},
+             location: {0, 0},
              rotation: 0,
              color: "#BADA55"
            }
@@ -26,7 +26,7 @@ defmodule TetrominoTest do
 
     assert Tetromino.right(tetro) == %Tetromino{
              name: :i,
-             location: {1, 4},
+             location: {0, 1},
              rotation: 0,
              color: "#BADA55"
            }
@@ -37,7 +37,7 @@ defmodule TetrominoTest do
 
     assert Tetromino.fall(tetro) == %Tetromino{
              name: :i,
-             location: {2, 3},
+             location: {1, 0},
              rotation: 0,
              color: "#BADA55"
            }
@@ -50,7 +50,7 @@ defmodule TetrominoTest do
 
     assert tetro == %Tetromino{
              name: :i,
-             location: {1, 3},
+             location: {0, 0},
              rotation: 90,
              color: "#BADA55"
            }
@@ -64,7 +64,7 @@ defmodule TetrominoTest do
 
     assert tetro == %Tetromino{
              name: :i,
-             location: {1, 3},
+             location: {0, 0},
              rotation: 180,
              color: "#BADA55"
            }
@@ -79,7 +79,7 @@ defmodule TetrominoTest do
 
     assert tetro == %Tetromino{
              name: :i,
-             location: {1, 3},
+             location: {0, 0},
              rotation: 270,
              color: "#BADA55"
            }
@@ -95,7 +95,7 @@ defmodule TetrominoTest do
 
     assert tetro == %Tetromino{
              name: :i,
-             location: {1, 3},
+             location: {0, 0},
              rotation: 0,
              color: "#BADA55"
            }
@@ -112,7 +112,7 @@ defmodule TetrominoTest do
 
     assert tetro == %Tetromino{
              name: :i,
-             location: {1, 3},
+             location: {0, 0},
              rotation: 90,
              color: "#BADA55"
            }
@@ -122,10 +122,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:i) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 5}, "#00FFFF"},
-             {{3, 5}, "#00FFFF"},
-             {{4, 5}, "#00FFFF"},
-             {{5, 5}, "#00FFFF"}
+             {{1, 2}, "#00FFFF"},
+             {{2, 2}, "#00FFFF"},
+             {{3, 2}, "#00FFFF"},
+             {{4, 2}, "#00FFFF"}
            ]
   end
 
@@ -133,10 +133,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:l) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 5}, "#FFA500"},
-             {{3, 5}, "#FFA500"},
-             {{4, 5}, "#FFA500"},
-             {{4, 6}, "#FFA500"}
+             {{1, 2}, "#FFA500"},
+             {{2, 2}, "#FFA500"},
+             {{3, 2}, "#FFA500"},
+             {{3, 3}, "#FFA500"}
            ]
   end
 
@@ -144,10 +144,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:j) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 5}, "#0000FF"},
-             {{3, 5}, "#0000FF"},
-             {{4, 5}, "#0000FF"},
-             {{4, 4}, "#0000FF"}
+             {{1, 2}, "#0000FF"},
+             {{2, 2}, "#0000FF"},
+             {{3, 2}, "#0000FF"},
+             {{3, 1}, "#0000FF"}
            ]
   end
 
@@ -155,10 +155,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:t) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 4}, "#800080"},
-             {{2, 5}, "#800080"},
-             {{2, 6}, "#800080"},
-             {{3, 5}, "#800080"}
+             {{1, 1}, "#800080"},
+             {{1, 2}, "#800080"},
+             {{1, 3}, "#800080"},
+             {{2, 2}, "#800080"}
            ]
   end
 
@@ -166,10 +166,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:o) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 4}, "#FFFF00"},
-             {{2, 5}, "#FFFF00"},
-             {{3, 4}, "#FFFF00"},
-             {{3, 5}, "#FFFF00"}
+             {{1, 1}, "#FFFF00"},
+             {{1, 2}, "#FFFF00"},
+             {{2, 1}, "#FFFF00"},
+             {{2, 2}, "#FFFF00"}
            ]
   end
 
@@ -177,10 +177,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:s) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 5}, "#008000"},
-             {{2, 6}, "#008000"},
-             {{3, 5}, "#008000"},
-             {{3, 4}, "#008000"}
+             {{1, 2}, "#008000"},
+             {{1, 3}, "#008000"},
+             {{2, 2}, "#008000"},
+             {{2, 1}, "#008000"}
            ]
   end
 
@@ -188,10 +188,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:z) |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 4}, "#FF0000"},
-             {{2, 5}, "#FF0000"},
-             {{3, 5}, "#FF0000"},
-             {{3, 6}, "#FF0000"}
+             {{1, 1}, "#FF0000"},
+             {{1, 2}, "#FF0000"},
+             {{2, 2}, "#FF0000"},
+             {{2, 3}, "#FF0000"}
            ]
   end
 
@@ -199,10 +199,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:z) |> Tetromino.rotate_right_90() |> Tetromino.to_group()
 
     assert tetro == [
-             {{2, 7}, "#FF0000"},
-             {{3, 7}, "#FF0000"},
-             {{3, 6}, "#FF0000"},
-             {{4, 6}, "#FF0000"}
+             {{1, 4}, "#FF0000"},
+             {{2, 4}, "#FF0000"},
+             {{2, 3}, "#FF0000"},
+             {{3, 3}, "#FF0000"}
            ]
   end
 end

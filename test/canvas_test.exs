@@ -32,10 +32,18 @@ defmodule CanvasTest do
     assert Canvas.tetromino(points) == expected_result
   end
 
-  test "Draw a single point" do
+  test "Draw a single point with color" do
     point = {{1, 1}, "#BADA55"}
 
     expected_result = "<rect x=\"0\" y=\"0\" width=\"25\" height=\"25\" fill=\"#BADA55\" />"
+
+    assert Canvas.draw(point, 25) == expected_result
+  end
+
+  test "Draw a single point without color" do
+    point = {1, 1}
+
+    expected_result = "<rect x=\"0\" y=\"0\" width=\"25\" height=\"25\" fill=\"black\" />"
 
     assert Canvas.draw(point, 25) == expected_result
   end

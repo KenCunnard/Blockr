@@ -35,17 +35,6 @@ defmodule Shape do
   end
 
   def paint(shape, shape_name) do
-    html_color_code =
-      case shape_name do
-        :i -> "#00FFFF"
-        :l -> "#FFA500"
-        :j -> "#0000FF"
-        :t -> "#800080"
-        :o -> "#FFFF00"
-        :s -> "#008000"
-        :z -> "#FF0000"
-      end
-
-    Enum.map(shape, &Point.paint(&1, html_color_code))
+    Enum.map(shape, &Point.paint(&1, Color.for(shape_name)))
   end
 end

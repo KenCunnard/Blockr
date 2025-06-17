@@ -145,10 +145,10 @@ defmodule ShapeTest do
       ]
 
     assert Shape.paint(shape, :j) == [
-             {{2, 2}, "#0000FF"},
-             {{3, 2}, "#0000FF"},
-             {{4, 2}, "#0000FF"},
-             {{4, 3}, "#0000FF"}
+             {{2, 2}, "blue"},
+             {{3, 2}, "blue"},
+             {{4, 2}, "blue"},
+             {{4, 3}, "blue"}
            ]
   end
 end

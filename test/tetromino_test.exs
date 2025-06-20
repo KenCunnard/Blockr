@@ -1,6 +1,8 @@
 defmodule TetrominoTest do
   use ExUnit.Case
 
+  alias Blockr.Game.Tetromino
+
   test "Create new tetromino" do
     assert Tetromino.new() == %Tetromino{
              name: :i,

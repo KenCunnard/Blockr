@@ -1,6 +1,9 @@
 defmodule ShapeTest do
   use ExUnit.Case
 
+  alias Blockr.Game.Shape
+  alias Blockr.Game.Point
+
   # [{2, 2}, {3, 2}, {4, 2}, {4, 3}]
 
   test "Move shape down" do

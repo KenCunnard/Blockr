@@ -1,6 +1,9 @@
 defmodule CanvasTest do
   use ExUnit.Case
 
+  alias Blockr.Game.Canvas
+  alias Blockr.Game.Tetromino
+
   test "Create new canvas" do
     tetro =
       Tetromino.new(:z)

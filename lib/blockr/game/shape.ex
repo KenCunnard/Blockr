@@ -1,4 +1,7 @@
-defmodule Shape do
+defmodule Blockr.Game.Shape do
+  alias Blockr.Game.Point
+  alias Blockr.Game.Color
+
   # shape param is a list of points in the format ...
   # [{1, 2}, {2, 2}, {3, 2}, {4, 2}]
   #

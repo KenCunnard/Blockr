@@ -1,4 +1,7 @@
-defmodule Tetromino do
+defmodule Blockr.Game.Tetromino do
+  alias Blockr.Game.Shape
+  alias Blockr.Game.Point
+
   defstruct name: :i,
             # {row, col}
             location: {0, 0},

@@ -1,4 +1,4 @@
-defmodule Canvas do
+defmodule Blockr.Game.Canvas do
   def new(points) do
     """
     <svg width="100" height="200" xmlns="http://www.w3.org/2000/svg">

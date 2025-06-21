@@ -7,8 +7,7 @@ defmodule TetrominoTest do
     assert Tetromino.new() == %Tetromino{
              name: :i,
              location: {0, 0},
-             rotation: 0,
-             color: "#BADA55"
+             rotation: 0
            }
   end
 
@@ -18,8 +17,7 @@ defmodule TetrominoTest do
     assert Tetromino.left(tetro) == %Tetromino{
              name: :i,
              location: {0, 0},
-             rotation: 0,
-             color: "#BADA55"
+             rotation: 0
            }
   end
 
@@ -29,8 +27,7 @@ defmodule TetrominoTest do
     assert Tetromino.right(tetro) == %Tetromino{
              name: :i,
              location: {0, 1},
-             rotation: 0,
-             color: "#BADA55"
+             rotation: 0
            }
   end
 
@@ -40,8 +37,7 @@ defmodule TetrominoTest do
     assert Tetromino.fall(tetro) == %Tetromino{
              name: :i,
              location: {1, 0},
-             rotation: 0,
-             color: "#BADA55"
+             rotation: 0
            }
   end
 
@@ -53,8 +49,7 @@ defmodule TetrominoTest do
     assert tetro == %Tetromino{
              name: :i,
              location: {0, 0},
-             rotation: 90,
-             color: "#BADA55"
+             rotation: 90
            }
   end
 
@@ -67,8 +62,7 @@ defmodule TetrominoTest do
     assert tetro == %Tetromino{
              name: :i,
              location: {0, 0},
-             rotation: 180,
-             color: "#BADA55"
+             rotation: 180
            }
   end
 
@@ -82,8 +76,7 @@ defmodule TetrominoTest do
     assert tetro == %Tetromino{
              name: :i,
              location: {0, 0},
-             rotation: 270,
-             color: "#BADA55"
+             rotation: 270
            }
   end
 
@@ -98,8 +91,7 @@ defmodule TetrominoTest do
     assert tetro == %Tetromino{
              name: :i,
              location: {0, 0},
-             rotation: 0,
-             color: "#BADA55"
+             rotation: 0
            }
   end
 
@@ -115,8 +107,7 @@ defmodule TetrominoTest do
     assert tetro == %Tetromino{
              name: :i,
              location: {0, 0},
-             rotation: 90,
-             color: "#BADA55"
+             rotation: 90
            }
   end
 

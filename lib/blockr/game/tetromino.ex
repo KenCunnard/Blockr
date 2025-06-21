@@ -5,8 +5,7 @@ defmodule Blockr.Game.Tetromino do
   defstruct name: :i,
             # {row, col}
             location: {0, 0},
-            rotation: 0,
-            color: "#BADA55"
+            rotation: 0
 
   def new(name \\ :i) do
     %__MODULE__{name: name}

@@ -11,6 +11,12 @@ defmodule Blockr.Game.Tetromino do
     %__MODULE__{name: name}
   end
 
+  def new_random() do
+    [:i, :l, :j, :t, :o, :s, :z]
+    |> Enum.random()
+    |> new()
+  end
+
   def left(tetro) do
     %{tetro | location: Point.move_left(tetro.location)}
   end

@@ -11,7 +11,7 @@ defmodule CanvasTest do
 
     expected_result = %Kino.Image{
       content:
-        "<svg width=\"100\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\">\n\n  <!-- Background -->\n  <rect width=\"100%\" height=\"100%\" fill=\"#F0F0F0\" />\n\n  <!-- Border -->\n  <rect width=\"100%\" height=\"100%\" fill=\"none\" stroke=\"black\" stroke-width=\"2\" />\n\n  <rect x=\"0\" y=\"0\" width=\"10\" height=\"10\" fill=\"red\" />\n<rect x=\"10\" y=\"0\" width=\"10\" height=\"10\" fill=\"red\" />\n<rect x=\"10\" y=\"10\" width=\"10\" height=\"10\" fill=\"red\" />\n<rect x=\"20\" y=\"10\" width=\"10\" height=\"10\" fill=\"red\" />\n</svg>\n",
+        "<svg width=\"120\" height=\"220\" xmlns=\"http://www.w3.org/2000/svg\">\n\n  <!-- Background -->\n  <rect width=\"100%\" height=\"100%\" fill=\"#F0F0F0\" />\n\n  <!-- Border -->\n  <rect width=\"100%\" height=\"100%\" fill=\"none\" stroke=\"black\" stroke-width=\"2\" />\n\n  <rect x=\"10\" y=\"10\" width=\"10\" height=\"10\" fill=\"red\" />\n<rect x=\"20\" y=\"10\" width=\"10\" height=\"10\" fill=\"red\" />\n<rect x=\"20\" y=\"20\" width=\"10\" height=\"10\" fill=\"red\" />\n<rect x=\"30\" y=\"20\" width=\"10\" height=\"10\" fill=\"red\" />\n</svg>\n",
       mime_type: "image/svg+xml"
     }
 
@@ -28,7 +28,7 @@ defmodule CanvasTest do
 
     expected_result = %Kino.Image{
       content:
-        "<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"25\" y=\"25\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n<rect x=\"25\" y=\"50\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n<rect x=\"25\" y=\"75\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n<rect x=\"50\" y=\"75\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n</svg>\n",
+        "<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect x=\"35\" y=\"35\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n<rect x=\"35\" y=\"60\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n<rect x=\"35\" y=\"85\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n<rect x=\"60\" y=\"85\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n</svg>\n",
       mime_type: "image/svg+xml"
     }
 
@@ -38,7 +38,7 @@ defmodule CanvasTest do
   test "Draw a single point with color" do
     point = {{1, 1}, "#BADA55"}
 
-    expected_result = "<rect x=\"0\" y=\"0\" width=\"25\" height=\"25\" fill=\"#BADA55\" />"
+    expected_result = "<rect x=\"10\" y=\"10\" width=\"25\" height=\"25\" fill=\"#BADA55\" />"
 
     assert Canvas.draw(point, 25) == expected_result
   end
@@ -46,7 +46,7 @@ defmodule CanvasTest do
   test "Draw a single point without color" do
     point = {1, 1}
 
-    expected_result = "<rect x=\"0\" y=\"0\" width=\"25\" height=\"25\" fill=\"black\" />"
+    expected_result = "<rect x=\"10\" y=\"10\" width=\"25\" height=\"25\" fill=\"black\" />"
 
     assert Canvas.draw(point, 25) == expected_result
   end
@@ -60,7 +60,7 @@ defmodule CanvasTest do
     ]
 
     expected_result =
-      "<rect x=\"25\" y=\"25\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n<rect x=\"25\" y=\"50\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n<rect x=\"25\" y=\"75\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n<rect x=\"50\" y=\"75\" width=\"25\" height=\"25\" fill=\"#BADA55\" />"
+      "<rect x=\"35\" y=\"35\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n<rect x=\"35\" y=\"60\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n<rect x=\"35\" y=\"85\" width=\"25\" height=\"25\" fill=\"#BADA55\" />\n<rect x=\"60\" y=\"85\" width=\"25\" height=\"25\" fill=\"#BADA55\" />"
 
     assert Canvas.draw(points, 25) == expected_result
   end

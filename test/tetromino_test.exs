@@ -11,6 +11,10 @@ defmodule TetrominoTest do
            }
   end
 
+  test "Create a random new tetromino" do
+    assert match?(%Blockr.Game.Tetromino{}, Tetromino.new_random())
+  end
+
   test "Move tetromino left" do
     tetro = Tetromino.new()
 

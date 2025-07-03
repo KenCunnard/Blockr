@@ -1,7 +1,7 @@
 defmodule Blockr.Game.Canvas do
   def new(points) do
     """
-    <svg width="100" height="200" xmlns="http://www.w3.org/2000/svg">
+    <svg width="120" height="220" xmlns="http://www.w3.org/2000/svg">
 
       <!-- Background -->
       <rect width="100%" height="100%" fill="#F0F0F0" />
@@ -25,8 +25,8 @@ defmodule Blockr.Game.Canvas do
   end
 
   def draw({{row, col}, color}, width) do
-    x = (col - 1) * width
-    y = (row - 1) * width
+    x = (col - 1) * width + 10
+    y = (row - 1) * width + 10
 
     ~s[<rect x="#{x}" y="#{y}" width="#{width}" height="#{width}" fill="#{color}" />]
   end

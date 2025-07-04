@@ -7,7 +7,15 @@ defmodule Blockr.Game.Tetromino do
             location: {0, 0},
             rotation: 0
 
-  def new(name \\ :i) do
+  def new() do
+    %__MODULE__{}
+  end
+
+  def new(options) when is_list(options) do
+    __struct__(options)
+  end
+
+  def new(name) do
     %__MODULE__{name: name}
   end
 

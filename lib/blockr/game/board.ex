@@ -30,4 +30,16 @@ defmodule Blockr.Game.Board do
 
     %Blockr.Game.Board{board | walls: walls}
   end
+
+  def show(board) do
+    [
+      [board.tetro.location],
+      for wall_point <- board.walls, into: [] do
+        wall_point
+      end,
+      for junkyard_point <- board.junkyard, into: [] do
+        junkyard_point
+      end
+    ]
+  end
 end

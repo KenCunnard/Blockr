@@ -20,7 +20,7 @@ defmodule TetrominoTest do
 
     assert Tetromino.left(tetro) == %Tetromino{
              name: :i,
-             location: {0, 0},
+             location: {0, -1},
              rotation: 0
            }
   end

@@ -3,45 +3,15 @@ defmodule Blockr.Game.Point do
     {row, col}
   end
 
-  # my attempt at move_down()
-  # def move_down(point) do
-  #   x = elem(point, 0)
-  #   new_point = put_elem(point, 0, x + 1)
-
-  #   new_point
-  # end
-
   def move_down({row, col}) do
-    # TODO: Prevent moving below the board
-    # case row do
-    #   0 ->
-    #     {0, col}
-
-    #   row when row > 0 ->
-    #     {row + 1}
-
-    #   _ ->
-    #     {:error, :not_a_valid_row}
-    # end
-
     {row + 1, col}
   end
 
   def move_left({row, col}) do
-    case col do
-      0 ->
-        {row, 0}
-
-      col when col > 0 and is_number(col) ->
-        {row, col - 1}
-
-      _ ->
-        {:error, :not_a_valid_column}
-    end
+    {row, col - 1}
   end
 
   def move_right({row, col}) do
-    # TODO: Prevent moving beyond the right of the board
     {row, col + 1}
   end
 

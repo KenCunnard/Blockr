@@ -15,14 +15,6 @@ defmodule PointTest do
     assert Point.move_left({5, 6}) == {5, 5}
   end
 
-  test "Move point left beyond board" do
-    assert Point.move_left({5, 0}) == {5, 0}
-  end
-
-  test "Move point left with invalid row" do
-    assert Point.move_left({5, "a"}) == {:error, :not_a_valid_column}
-  end
-
   test "Move point right" do
     assert Point.move_right({5, 6}) == {5, 7}
   end

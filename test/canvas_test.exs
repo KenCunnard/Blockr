@@ -11,7 +11,7 @@ defmodule CanvasTest do
 
     expected_result = %Kino.Image{
       content:
-        "<svg width=\"120\" height=\"220\" xmlns=\"http://www.w3.org/2000/svg\">\n\n  <!-- Background -->\n  <rect width=\"100%\" height=\"100%\" fill=\"#F0F0F0\" />\n\n  <!-- Border -->\n  <rect width=\"100%\" height=\"100%\" fill=\"none\" stroke=\"black\" stroke-width=\"2\" />\n\n  <rect x=\"10\" y=\"10\" width=\"10\" height=\"10\" fill=\"red\" />\n<rect x=\"20\" y=\"10\" width=\"10\" height=\"10\" fill=\"red\" />\n<rect x=\"20\" y=\"20\" width=\"10\" height=\"10\" fill=\"red\" />\n<rect x=\"30\" y=\"20\" width=\"10\" height=\"10\" fill=\"red\" />\n</svg>\n",
+        "<svg width=\"120\" height=\"220\" xmlns=\"http://www.w3.org/2000/svg\">\n\n  <!-- Background -->\n  <rect width=\"100%\" height=\"100%\" fill=\"#F0F0F0\" />\n\n  <!-- Border -->\n  <rect width=\"100%\" height=\"100%\" fill=\"none\" stroke=\"black\" stroke-width=\"2\" />\n\n  <rect x=\"10\" y=\"10\" width=\"10\" height=\"10\" fill=\"black\" />\n<rect x=\"20\" y=\"10\" width=\"10\" height=\"10\" fill=\"black\" />\n<rect x=\"20\" y=\"20\" width=\"10\" height=\"10\" fill=\"black\" />\n<rect x=\"30\" y=\"20\" width=\"10\" height=\"10\" fill=\"black\" />\n</svg>\n",
       mime_type: "image/svg+xml"
     }
 

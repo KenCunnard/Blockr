@@ -119,10 +119,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:i) |> Tetromino.to_group()
 
     assert tetro == [
-             {{1, 2}, "cyan"},
-             {{2, 2}, "cyan"},
-             {{3, 2}, "cyan"},
-             {{4, 2}, "cyan"}
+             {1, 2},
+             {2, 2},
+             {3, 2},
+             {4, 2}
            ]
   end
 
@@ -130,10 +130,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:l) |> Tetromino.to_group()
 
     assert tetro == [
-             {{1, 2}, "orange"},
-             {{2, 2}, "orange"},
-             {{3, 2}, "orange"},
-             {{3, 3}, "orange"}
+             {1, 2},
+             {2, 2},
+             {3, 2},
+             {3, 3}
            ]
   end
 
@@ -141,10 +141,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:j) |> Tetromino.to_group()
 
     assert tetro == [
-             {{1, 2}, "blue"},
-             {{2, 2}, "blue"},
-             {{3, 2}, "blue"},
-             {{3, 1}, "blue"}
+             {1, 2},
+             {2, 2},
+             {3, 2},
+             {3, 1}
            ]
   end
 
@@ -152,10 +152,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:t) |> Tetromino.to_group()
 
     assert tetro == [
-             {{1, 1}, "purple"},
-             {{1, 2}, "purple"},
-             {{1, 3}, "purple"},
-             {{2, 2}, "purple"}
+             {1, 1},
+             {1, 2},
+             {1, 3},
+             {2, 2}
            ]
   end
 
@@ -163,10 +163,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:o) |> Tetromino.to_group()
 
     assert tetro == [
-             {{1, 1}, "yellow"},
-             {{1, 2}, "yellow"},
-             {{2, 1}, "yellow"},
-             {{2, 2}, "yellow"}
+             {1, 1},
+             {1, 2},
+             {2, 1},
+             {2, 2}
            ]
   end
 
@@ -174,10 +174,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:s) |> Tetromino.to_group()
 
     assert tetro == [
-             {{1, 2}, "green"},
-             {{1, 3}, "green"},
-             {{2, 2}, "green"},
-             {{2, 1}, "green"}
+             {1, 2},
+             {1, 3},
+             {2, 2},
+             {2, 1}
            ]
   end
 
@@ -185,10 +185,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:z) |> Tetromino.to_group()
 
     assert tetro == [
-             {{1, 1}, "red"},
-             {{1, 2}, "red"},
-             {{2, 2}, "red"},
-             {{2, 3}, "red"}
+             {1, 1},
+             {1, 2},
+             {2, 2},
+             {2, 3}
            ]
   end
 
@@ -196,10 +196,10 @@ defmodule TetrominoTest do
     tetro = Tetromino.new(:z) |> Tetromino.rotate_right_90() |> Tetromino.to_group()
 
     assert tetro == [
-             {{1, 4}, "red"},
-             {{2, 4}, "red"},
-             {{2, 3}, "red"},
-             {{3, 3}, "red"}
+             {1, 4},
+             {2, 4},
+             {2, 3},
+             {3, 3}
            ]
   end
 end

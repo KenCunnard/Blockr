@@ -53,6 +53,7 @@ defmodule Blockr.Game.Tetromino do
     end
     |> Shape.rotate(tetro.rotation)
     |> Shape.move_to(tetro.location)
-    |> Shape.paint(tetro.name)
+
+    # |> Shape.paint(tetro.name)
   end
 end

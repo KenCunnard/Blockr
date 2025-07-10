@@ -1,72 +1,38 @@
 defmodule Blockr.Game do
-  alias Blockr.Game.Board
   alias Blockr.Game.Tetromino
 
-  # Functions that support gameplay
-  # API
-  # Guardrails for the user
-  #
+  def left(board) do
+    updated_tetro = Tetromino.left(board.tetro)
 
-  defstruct board: nil,
-            player: nil
-
-  def new(options \\ []) do
-    __struct__(options)
+    attempt_move(board, updated_tetro)
   end
 
-  def left(game) do
-    updated_tetro = Tetromino.left(game.board.tetro)
+  def right(board) do
+    updated_tetro = Tetromino.right(board.tetro)
 
-    if should_move?(game.board, updated_tetro) do
-      %Blockr.Game{
-        game
-        | board: %Blockr.Game.Board{
-            game.board
-            | tetro: updated_tetro
-          }
-      }
+    attempt_move(board, updated_tetro)
+  end
+
+  def rotate(board) do
+    updated_tetro = Tetromino.rotate_right_90(board.tetro)
+
+    attempt_move(board, updated_tetro)
+  end
+
+  defp attempt_move(board, tetro) do
+    set =
+      tetro
+      |> Tetromino.to_group()
+      |> MapSet.new()
+
+    intersection = MapSet.intersection(set, board.points)
+
+    should_move? = MapSet.size(intersection) == 0
+
+    if should_move? do
+      %{board | tetro: tetro}
     else
-      game
+      board
     end
-  end
-
-  def right(game) do
-    updated_tetro = Tetromino.right(game.board.tetro)
-
-    if should_move?(game.board, updated_tetro) do
-      %Blockr.Game{
-        game
-        | board: %Blockr.Game.Board{
-            game.board
-            | tetro: updated_tetro
-          }
-      }
-    else
-      game
-    end
-  end
-
-  def rotate(game) do
-    updated_tetro = Tetromino.rotate_right_90(game.board.tetro)
-
-    if should_move?(game.board, updated_tetro) do
-      %Blockr.Game{
-        game
-        | board: %Blockr.Game.Board{
-            game.board
-            | tetro: updated_tetro
-          }
-      }
-    else
-      game
-    end
-  end
-
-  defp should_move?(board, tetro) do
-    board
-    |> Board.show()
-    |> List.flatten()
-    |> Enum.member?(tetro.location)
-    |> Kernel.not()
   end
 end

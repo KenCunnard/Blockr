@@ -1,10 +1,12 @@
 defmodule Blockr.Game.Board do
+  alias Blockr.Game.Shape
   alias Blockr.Game.Tetromino
 
   defstruct score: 0,
             tetro: nil,
             walls: [],
-            junkyard: []
+            junkyard: [],
+            points: MapSet.new([])
 
   def new(options \\ []) do
     __struct__(options)
@@ -28,18 +30,15 @@ defmodule Blockr.Game.Board do
         {row, col}
       end
 
-    %Blockr.Game.Board{board | walls: walls}
+    %Blockr.Game.Board{board | walls: walls, points: MapSet.new(walls)}
   end
 
   def show(board) do
-    [
-      [board.tetro.location],
-      for wall_point <- board.walls, into: [] do
-        wall_point
-      end,
-      for junkyard_point <- board.junkyard, into: [] do
-        junkyard_point
-      end
-    ]
+    tetro =
+      board.tetro
+      |> Tetromino.to_group()
+      |> Shape.paint(board.tetro.name)
+
+    [tetro, board.walls, board.junkyard]
   end
 end

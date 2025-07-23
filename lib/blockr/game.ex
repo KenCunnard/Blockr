@@ -1,56 +1,57 @@
 defmodule Blockr.Game do
-  alias Blockr.Game.Shape
+  alias Blockr.Game.Board
   alias Blockr.Game.Tetromino
 
   def left(board) do
     updated_tetro = Tetromino.left(board.tetro)
 
-    attempt_move(board, updated_tetro)
+    replace_unless_collides(board, updated_tetro)
   end
 
   def right(board) do
     updated_tetro = Tetromino.right(board.tetro)
 
-    attempt_move(board, updated_tetro)
+    replace_unless_collides(board, updated_tetro)
   end
 
   def rotate(board) do
     updated_tetro = Tetromino.rotate_right_90(board.tetro)
 
-    attempt_move(board, updated_tetro)
+    replace_unless_collides(board, updated_tetro)
   end
 
   def fall(board) do
     updated_tetro = Tetromino.fall(board.tetro)
 
-    attempt_move(board, updated_tetro)
+    if collides?(board, updated_tetro) do
+      crash(board)
+    else
+      %{board | tetro: updated_tetro}
+    end
   end
 
-  defp attempt_move(board, tetro) do
+  defp crash(board) do
+    board
+    |> Board.detach_tetro()
+    |> Board.new_tetro()
+  end
+
+  defp replace_unless_collides(board, tetro) do
+    if not collides?(board, tetro) do
+      %{board | tetro: tetro}
+    else
+      board
+    end
+  end
+
+  defp collides?(board, tetro) do
     set =
       tetro
       |> Tetromino.to_group()
       |> MapSet.new()
 
-    junk = Enum.map(board.junkyard, fn {point, _color} -> point end)
-    points = board.points |> MapSet.to_list()
+    intersection = MapSet.intersection(set, board.points)
 
-    updated_points =
-      [junk | points]
-      |> List.flatten()
-      |> MapSet.new()
-
-    updated_junkyard =
-      [tetro |> Tetromino.to_group() |> Shape.paint(tetro.name) | board.junkyard]
-
-    intersection = MapSet.intersection(set, updated_points)
-
-    should_move? = MapSet.size(intersection) == 0
-
-    if should_move? do
-      %{board | tetro: tetro}
-    else
-      %{board | tetro: nil, points: updated_points, junkyard: updated_junkyard}
-    end
+    MapSet.size(intersection) > 0
   end
 end

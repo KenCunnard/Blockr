@@ -10,11 +10,11 @@ defmodule Blockr.Game.Board do
 
   def new(options \\ []) do
     __struct__(options)
-    |> initialize_tetromino()
+    |> new_tetro()
     |> add_walls()
   end
 
-  def initialize_tetromino(board) do
+  def new_tetro(board) do
     random_tetro =
       Tetromino.new_random()
 
@@ -31,6 +31,19 @@ defmodule Blockr.Game.Board do
       end
 
     %Blockr.Game.Board{board | walls: walls, points: MapSet.new(walls)}
+  end
+
+  def detach_tetro(board) do
+    points = Tetromino.to_group(board.tetro)
+    colors = Shape.paint(points, board.tetro.name)
+
+    # updated_points =
+    #   points
+    #   |> Enum.reduce(board.points, fn point, mapset_acc -> MapSet.put(mapset_acc, point) end)
+
+    updated_points = Enum.reduce(points, board.points, &MapSet.put(&2, &1))
+
+    %{board | points: updated_points, junkyard: board.junkyard ++ colors}
   end
 
   def show(board) do

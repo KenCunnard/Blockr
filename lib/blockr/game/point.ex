@@ -24,32 +24,10 @@ defmodule Blockr.Game.Point do
   end
 
   def flip_left_right({row, col}) do
-    # point
-    # |> Enum.map(fn {row, col} ->
-    #   case {row, col} do
-    #     {_, 1} -> {row, 4}
-    #     {_, 2} -> {row, 3}
-    #     {_, 3} -> {row, 2}
-    #     {_, 4} -> {row, 1}
-    #     _ -> {row, col}
-    #   end
-    # end)
-
     {row, 5 - col}
   end
 
   def flip_top_bottom({row, col}) do
-    # point
-    # |> Enum.map(fn {row, col} ->
-    #   case {row, col} do
-    #     {1, _} -> {4, col}
-    #     {2, _} -> {3, col}
-    #     {3, _} -> {2, col}
-    #     {4, _} -> {1, col}
-    #     _ -> {row, col}
-    #   end
-    # end)
-
     {5 - row, col}
   end
 
@@ -79,6 +57,3 @@ defmodule Blockr.Game.Point do
     {point, color}
   end
 end
-
-# cx, cx, rx, ry, nx, ny
-# 10  10  01  03

@@ -88,6 +88,6 @@ defmodule BoardTest do
   test "Initializing a tetromino returns a Blockr.Game.Board" do
     board = Board.new()
 
-    assert match?(%Blockr.Game.Board{}, Board.initialize_tetromino(board))
+    assert match?(%Blockr.Game.Board{}, Board.new_tetro(board))
   end
 end

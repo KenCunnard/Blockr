@@ -40,6 +40,7 @@ defmodule Blockr.Game.Board do
     updated_points = Enum.reduce(points, board.points, &MapSet.put(&2, &1))
 
     %{board | points: updated_points, junkyard: board.junkyard ++ colors}
+    |> add_score()
   end
 
   def count_complete_rows(board) do
@@ -55,12 +56,14 @@ defmodule Blockr.Game.Board do
     complete_rows = count_complete_rows(board)
 
     score_modifier =
-      case complete_rows do
-        0 -> 0
-        1 -> 100
-        2 -> 200
-        3 -> 400
-        4 -> 800
+      cond do
+        complete_rows == 0 ->
+          0
+
+        true ->
+          :math.pow(2, complete_rows)
+          |> round()
+          |> Kernel.*(50)
       end
 
     updated_score = board.score + score_modifier

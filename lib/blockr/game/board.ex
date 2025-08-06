@@ -47,26 +47,12 @@ defmodule Blockr.Game.Board do
   end
 
   def count_complete_rows(board) do
-    possible_winning_lines =
-      for row <- 1..20 do
-        for curr_row <- [row], col <- 1..10 do
-          {curr_row, col}
-        end
-      end
-      |> MapSet.new()
-
-    junk_lines =
-      for {{row, col}, _color} <- board.junkyard do
-        {row, col}
-      end
-      |> Enum.sort_by(fn {_row, col} -> col end)
-      |> Enum.group_by(fn {row, _col} -> row end)
-      |> Map.values()
-      |> MapSet.new()
-
-    winning_lines = MapSet.intersection(junk_lines, possible_winning_lines)
-
-    Enum.count(winning_lines)
+    board.junkyard
+    |> Map.new()
+    |> Map.keys()
+    |> Enum.group_by(fn {row, _col} -> row end)
+    |> Map.values()
+    |> Enum.count(fn list -> length(list) == 10 end)
   end
 
   def show(board) do

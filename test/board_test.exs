@@ -90,4 +90,41 @@ defmodule BoardTest do
 
     assert match?(%Blockr.Game.Board{}, Board.new_tetro(board))
   end
+
+  test "Count complete rows" do
+    complete_rows_count =
+      Board.new(
+        junkyard: [
+          {{20, 5}, "blue"},
+          {{20, 6}, "blue"},
+          {{19, 5}, "blue"},
+          {{19, 6}, "blue"},
+          {{20, 1}, "cyan"},
+          {{19, 2}, "cyan"},
+          {{20, 2}, "cyan"},
+          {{20, 3}, "cyan"},
+          {{20, 4}, "red"},
+          {{20, 7}, "purple"},
+          {{20, 8}, "purple"},
+          {{20, 9}, "purple"},
+          {{20, 10}, "purple"},
+          {{18, 5}, "blue"},
+          {{18, 6}, "blue"},
+          {{17, 5}, "blue"},
+          {{17, 6}, "blue"},
+          {{18, 1}, "cyan"},
+          {{17, 2}, "cyan"},
+          {{18, 2}, "cyan"},
+          {{18, 3}, "cyan"},
+          {{18, 4}, "red"},
+          {{18, 7}, "purple"},
+          {{18, 8}, "purple"},
+          {{18, 9}, "purple"},
+          {{18, 10}, "purple"}
+        ]
+      )
+      |> Board.count_complete_rows()
+
+    assert complete_rows_count == 2
+  end
 end

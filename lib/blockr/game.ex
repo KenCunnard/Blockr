@@ -33,6 +33,7 @@ defmodule Blockr.Game do
   defp crash(board) do
     board
     |> Board.detach_tetro()
+    |> Board.add_score()
     |> Board.new_tetro()
   end
 

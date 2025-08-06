@@ -37,10 +37,6 @@ defmodule Blockr.Game.Board do
     points = Tetromino.to_group(board.tetro)
     colors = Shape.paint(points, board.tetro.name)
 
-    # updated_points =
-    #   points
-    #   |> Enum.reduce(board.points, fn point, mapset_acc -> MapSet.put(mapset_acc, point) end)
-
     updated_points = Enum.reduce(points, board.points, &MapSet.put(&2, &1))
 
     %{board | points: updated_points, junkyard: board.junkyard ++ colors}
@@ -53,6 +49,23 @@ defmodule Blockr.Game.Board do
     |> Enum.group_by(fn {row, _col} -> row end)
     |> Map.values()
     |> Enum.count(fn list -> length(list) == 10 end)
+  end
+
+  def add_score(board) do
+    complete_rows = count_complete_rows(board)
+
+    score_modifier =
+      case complete_rows do
+        0 -> 0
+        1 -> 100
+        2 -> 200
+        3 -> 400
+        4 -> 800
+      end
+
+    updated_score = board.score + score_modifier
+
+    %{board | score: updated_score}
   end
 
   def show(board) do

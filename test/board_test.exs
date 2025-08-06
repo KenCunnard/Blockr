@@ -127,4 +127,54 @@ defmodule BoardTest do
 
     assert complete_rows_count == 2
   end
+
+  test "Add score" do
+    board =
+      Board.new(
+        junkyard: [
+          {{20, 5}, "blue"},
+          {{20, 6}, "blue"},
+          {{19, 5}, "blue"},
+          {{19, 6}, "blue"},
+          {{20, 1}, "cyan"},
+          {{19, 2}, "cyan"},
+          {{20, 2}, "cyan"},
+          {{20, 3}, "cyan"},
+          {{20, 4}, "red"},
+          {{20, 7}, "purple"},
+          {{20, 8}, "purple"},
+          {{20, 9}, "purple"},
+          {{20, 10}, "purple"},
+          {{18, 5}, "blue"},
+          {{18, 6}, "blue"},
+          {{17, 5}, "blue"},
+          {{17, 6}, "blue"},
+          {{18, 1}, "cyan"},
+          {{17, 2}, "cyan"},
+          {{18, 2}, "cyan"},
+          {{18, 3}, "cyan"},
+          {{18, 4}, "red"},
+          {{18, 7}, "purple"},
+          {{18, 8}, "purple"},
+          {{18, 9}, "purple"},
+          {{18, 10}, "purple"},
+          {{16, 5}, "blue"},
+          {{16, 6}, "blue"},
+          {{15, 5}, "blue"},
+          {{15, 6}, "blue"},
+          {{16, 1}, "cyan"},
+          {{15, 2}, "cyan"},
+          {{16, 2}, "cyan"},
+          {{16, 3}, "cyan"},
+          {{16, 4}, "red"},
+          {{16, 7}, "purple"},
+          {{16, 8}, "purple"},
+          {{16, 9}, "purple"},
+          {{16, 10}, "purple"}
+        ]
+      )
+      |> Board.add_score()
+
+    assert board.score == 400
+  end
 end
